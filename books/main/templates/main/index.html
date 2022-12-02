@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+BOOKS
+{% endblock %}
+
+{% block content %}
+
+<h1>Головна сторінка проекту "Бібліотека".</h1>
+
+{% if books %}
+{% for el in books %}
+<!--    <div class="alert alert-warning mt-2">-->
+    <div class="alert alert-success mt-1">
+        <h3><u>{{ el.title }}</u></h3>
+        <p><b><i>{{ el.author }}</i></b></p>
+        <p><i>{{ el.text }}</i></p>
+<!--        <p><i>{% lorem 4 w random %}</i></p>-->
+        <p>Кількість: {{ el.count }}</p>
+        <p><b>Видано: {{ el.published }}</b></p>
+        <p><b>Зареєстровано: {{ el.created }}</b></p>
+    </div>
+{% endfor %}
+{% else %}
+    <p>В даному каталозі записи відсутні.</p>
+{% endif %}
+
+
+{% endblock %}
